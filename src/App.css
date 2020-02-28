@@ -12,6 +12,10 @@
 *::after {
   box-sizing: border-box;
 }
+*::selection, *::-moz-selection {
+  background-color: #0d966883;
+  color: var(--white);
+}
 html,
 body {
   margin: 0;
@@ -143,13 +147,18 @@ h3 {
   opacity: 1 !important;
 }
 
+.form-control {
+  margin: 2rem 0;
+}
+
 label {
   display: inline-block;
   margin: 10px 0;
   font-size: 1.2rem;
 }
 
-input {
+.form-control input,
+.form-control select {
   border: none;
   border-radius: 2px;
   display: block;
@@ -159,23 +168,37 @@ input {
   background-color: rgb(139, 207, 219);
   position: relative;
 }
-input[type='number']::-webkit-inner-spin-button {
-  display: none;
-}
 .btn {
   cursor: pointer;
   background-color: #0d9669;
   box-shadow: var(--box-shadow);
   color: var(--white);
   border: 0;
+  border-radius: 2px;
   display: block;
-  font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 1rem 0 2rem;
   text-transform: capitalize;
   width: 100%;
+  height: 2.6rem;
+}
+.btn:hover {
+  background-color: #02aa77;
 }
 .btn:focus,
 .delete-btn:focus {
   outline: 0;
+}
+.hide-btn {
+  width: 40%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.form-control select > option {
+  background: rgb(139, 207, 219) !important;
+  color: #111;
+}
+.error-msg {
+  color: tomato;
 }
