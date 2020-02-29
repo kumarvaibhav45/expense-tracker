@@ -14,10 +14,7 @@ const AddTransaction = () => {
       setInputError('please select type of money!');
       return;
     }
-    let amt = amount;
-    if (amt.charAt(0) === '-') {
-      amt = -amt;
-    }
+    let amt = Math.abs(amount);
     if (moneyType === 1) {
       amt = +amt;
     } else if (moneyType === 2) {
@@ -83,10 +80,10 @@ const AddTransaction = () => {
                 <option value='2'>Expense</option>
               </select>
             </div>
-            <small className='error-msg'>{inputError}</small>
             <button type='submit' className='btn'>
               add transaction
             </button>
+            <small className='error-msg'>{inputError}</small>
           </form>
         </>
       )}
